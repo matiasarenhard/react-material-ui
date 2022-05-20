@@ -1,0 +1,16 @@
+.sidenav {
+  background-color: #27272a !important;
+  color: white !important;
+}
+
+.icon {
+  color: white !important;
+}
+.textHeader {
+  text-align: center !important;
+}
+
+.body {
+  background-color: #eff1f4 !important;
+  color: black;
+}
