@@ -18,7 +18,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import styles from "./Template.module.css";
+import styles from "./PageLayout.module.css";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import BugReportIcon from "@mui/icons-material/BugReport";
@@ -42,6 +42,7 @@ import NavigationIcon from '@mui/icons-material/Navigation';
 import Checkbox from '@mui/material/Checkbox';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { PieChart, Pie, Sector } from 'recharts';
+
 
 
 
@@ -230,7 +231,8 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-export default function MiniDrawer() {
+export default function PageLayout({ children }) {
+  
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -347,123 +349,7 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 3, p: 3 }} className={styles.body}>
         <DrawerHeader />
-        <Grid container spacing={1}>
-          <Grid item md={2}>
-            <Card sx={{ maxWidth: 800 }}>
-              <CardContent>
-                <Stack spacing={1}>
-                  <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
-                  <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                </Stack>
-                <br/>
-                <Stack sx={{ color: 'grey.500' }} spacing={2} direction="row">
-                    <CircularProgress color="secondary" />
-                    <CircularProgress color="success" />
-                    <CircularProgress color="inherit" />
-                </Stack>
-                <br/>
-                <Chip avatar={<Avatar>M</Avatar>} label="Matias" />
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item md={3}>
-            <Card sx={{ maxWidth: 800 }}>
-              <CardContent>
-                 <Button color="secondary">Secondary</Button>
-                <Button variant="contained" color="success">
-                  Success
-                </Button>
-                <br/><br/>
-                 <Checkbox {...label} defaultChecked />
-                <Checkbox {...label} defaultChecked color="secondary" />
-                <Checkbox {...label} defaultChecked color="success" />
-                <Checkbox {...label} defaultChecked color="default" />
-                <br/><br/>
-                <Fab color="primary" aria-label="add">
-                  <AddIcon />
-                </Fab>
-                <Fab color="secondary" aria-label="edit">
-                  <EditIcon />
-                </Fab>
-                <Fab disabled aria-label="like">
-                  <FavoriteIcon />
-                </Fab>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item md={3}>
-            <Card sx={{ maxWidth: 800 }}>
-              <CardContent>
-               <Slider
-                  aria-label="Temperature"
-                  defaultValue={30}
-                  getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
-                  step={10}
-                  marks
-                  min={10}
-                  max={110}
-                />
-                <Slider defaultValue={30} step={10} marks min={10} max={110} disabled />
-                <Slider
-                  aria-label="Temperature"
-                  defaultValue={30}
-                  getAriaValueText={valuetext}
-                  color="secondary"
-                />
-                <LinearProgress color="secondary" />
-                <br/>
-                <LinearProgress color="success" />
-                <br/>
-                  <LinearProgress color="inherit" />
-                 
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-        <br/>
-        <Grid container spacing={2}>
-          <Grid item md={2}>
-            <Card sx={{ maxWidth: 800 }}>
-              <CardContent>
-                <BarChart width={200} height={200} data={data}>
-                  <Bar dataKey="uv" fill="#8884d8" />
-                </BarChart>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item md={3}>
-            <Card sx={{ maxWidth: 800 }}>
-              <BarChart
-                width={200}
-                height={200}
-                data={dataChart2}
-                margin={{
-                  top: 4,
-                  right: 0,
-                  left: 0,
-                  bottom: 0,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="pv" fill="#8884d8" />
-                <Bar dataKey="uv" fill="#82ca9d" />
-              </BarChart>
-            </Card>
-          </Grid>
-          <Grid item md={3}>
-            <Card sx={{ maxWidth: 800 }}>
-             <PieChart width={200} height={200}>
-                <Pie data={data01} dataKey="value" cx="50%" cy="50%" outerRadius={60} fill="#8884d8" />
-                <Pie data={data02} dataKey="value" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
-              </PieChart>
-            </Card>
-          </Grid>
-        </Grid>
+        {children}
       </Box>
     </Box>
   );

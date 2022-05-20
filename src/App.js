@@ -1,11 +1,11 @@
-import './App.css';
-import Template from './components/template/Template';
+import './App.module.css';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
-    <>
-      <Template/>
-    </>
+    <main>
+      <Dashboard/>
+    </main>
     
   );
 }
