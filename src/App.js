@@ -1,10 +1,10 @@
 import './App.css';
-import Drawer from '../src/components/drawer/Drawer';
+import Template from './components/template/Template';
 
 function App() {
   return (
     <>
-      <Drawer/>
+      <Template/>
     </>
     
   );
