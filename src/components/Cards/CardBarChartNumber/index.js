@@ -1,5 +1,7 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
+import styles from "./CardBarChartNumber.module.css";
+import CardContent from "@mui/material/CardContent";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 const dataChart2 = [
   {
@@ -49,17 +51,12 @@ const dataChart2 = [
 export default function CardButton() {
   return (
     <>
-   <Card sx={{ maxWidth: 800 }}>
+      <Card sx={{ maxWidth: 800 }} className={styles.body}>
+        <CardContent>
               <BarChart
                 width={200}
                 height={200}
                 data={dataChart2}
-                margin={{
-                  top: 4,
-                  right: 0,
-                  left: 0,
-                  bottom: 0,
-                }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
@@ -69,7 +66,8 @@ export default function CardButton() {
                 <Bar dataKey="pv" fill="#8884d8" />
                 <Bar dataKey="uv" fill="#82ca9d" />
               </BarChart>
-            </Card>
+        </CardContent> 
+      </Card>
     </>
   );
 }

@@ -10,26 +10,26 @@ import CardBardChartNumber from "../../components/Cards/CardBarChartNumber";
 export default function CustomGrid() {
   return (
     <>
-      <Grid container spacing={1}>
-        <Grid item md={4}>
+      <Grid container spacing={1} style={{ display:'flex', justifyContent:'center' }}>
+        <Grid item md={4} style={{justifyContent:'center' }}>
           <CardStar />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} style={{ display:'flex', justifyContent:'center' }}>
           <CardButton />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} style={{ display:'flex', justifyContent:'center' }}>
           <CardSlider />
         </Grid>
       </Grid>
       <br />
-      <Grid container spacing={1}>
-        <Grid item md={4}>
+      <Grid container spacing={1} style={{ display:'flex', justifyContent:'center' }}>
+        <Grid item md={4} style={{ display:'flex', justifyContent:'center' }}>
           <CardBarChart />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} style={{ display:'flex', justifyContent:'center' }}>
           <CardBardChartNumber />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} style={{ display:'flex', justifyContent:'center' }}>
           <CardPie />
         </Grid>
       </Grid>
